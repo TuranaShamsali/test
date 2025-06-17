@@ -1,16 +1,37 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# try:
+#
+#     num1 = float(input("Введите числитель: "))
+#     num2 = float(input("Введите знаменатель: "))
+#
+#     result = num1 / num2
+#
+# except ZeroDivisionError:
+#     print("Ошибка: Деление на ноль невозможно.")
+# except ValueError:
+#     print("Ошибка: Введите корректные числовые значения.")
 
+#
+# my_list=["apple","samsung","honor","nokia"]
+# try:
+#     index = int(input("Введите индекс элемента списка: "))
+#     print(f"Элемент с индексом {index}: {my_list[index]}")
+# except ValueError:
+#     print("Ошибка: нужно ввести целое число.")
+# except IndexError:
+#     print("Ошибка: индекс выходит за пределы списка.")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+from selenium.common.exceptions import NoSuchElementException, ElementNotInteractableException
+from selenium import webdriver
+from selenium.webdriver.common.by import By
 
+driver=webdriver.Chrome()
+try:
+    element = driver.find_element(By.ID,"Gerry")
+    element.click()
+    print(" Элемент успешно найден и кликнут.")
+except NoSuchElementException:
+    print(f" Элемент с ID  не найден.")
+except ElementNotInteractableException:
+    print(f" Элемент с ID  найден, но недоступен для клика.")
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
